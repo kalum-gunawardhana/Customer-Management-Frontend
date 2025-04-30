@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+export interface ViewCus{
+  
+}
+
 @Component({
   selector: 'app-view-cus',
   imports: [],

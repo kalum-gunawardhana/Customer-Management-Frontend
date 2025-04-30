@@ -21,9 +21,10 @@ export class TabBarComponent {
     this.asyncTabs = new Observable((observer: Observer<TabBar[]>) => {
       setTimeout(() => {
         observer.next([
-          { label: 'First', content: 'Content 1' },
-          { label: 'Second', content: 'Content 2' },
-          { label: 'Third', content: 'Content 3' },
+          { label: 'Add', content: 'Content 1' },
+          { label: 'Search', content: 'Content 2' },
+          { label: 'Update', content: 'Content 3' },
+          { label: 'View/Delete', content: 'Content 3' },
         ]);
       }, 1000);
     });
