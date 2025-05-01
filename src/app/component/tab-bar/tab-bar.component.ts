@@ -24,7 +24,7 @@ export class TabBarComponent {
           { label: 'Add', content: 'Content 1' },
           { label: 'Search', content: 'Content 2' },
           { label: 'Update', content: 'Content 3' },
-          { label: 'View/Delete', content: 'Content 3' },
+          { label: 'View/Delete', content: 'Content 4' },
         ]);
       }, 1000);
     });
