@@ -1,32 +1,26 @@
 import { Component } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { MatTabsModule } from '@angular/material/tabs';
-import { AsyncPipe } from '@angular/common';
-
-export interface TabBar {
-  label: string;
-  content: string;
-}
-
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-tab-bar',
-  imports: [MatTabsModule, AsyncPipe],
+  imports: [MatTabsModule, AsyncPipe, CommonModule, RouterModule],
   templateUrl: './tab-bar.component.html',
   styleUrl: './tab-bar.component.css'
 })
 export class TabBarComponent {
-  asyncTabs: Observable<TabBar[]>;
+  tabs = [
+    { label: 'Add', route: 'add-cus' },
+    { label: 'Search', route: 'search-cus' },
+    { label: 'Update', route: 'update-cus' },
+    { label: 'View/Delete', route: 'view-cus' },
+  ];
 
-  constructor() {
-    this.asyncTabs = new Observable((observer: Observer<TabBar[]>) => {
-      setTimeout(() => {
-        observer.next([
-          { label: 'Add', content: 'Content 1' },
-          { label: 'Search', content: 'Content 2' },
-          { label: 'Update', content: 'Content 3' },
-          { label: 'View/Delete', content: 'Content 4' },
-        ]);
-      }, 1000);
-    });
+  constructor(private router: Router) { }
+
+  onTabChange(event: any) {
+    const selectedTab = this.tabs[event.index];
+    this.router.navigate([selectedTab.route]);
   }
 }
